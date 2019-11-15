@@ -10,9 +10,10 @@ exports.handler = async function(event) {
   }).then(function (parsedBody) {
     console.log('request to catfact.ninja was successful: ', 
       JSON.stringify(parsedBody, undefined, 2));
+    var cat_text = 'Did you know... ' + parsedBody.fact;
     var result = { 
       'response_type': 'in_channel',
-      'text': 'Did you know... ' + parsedBody.fact
+      'text': cat_text
     };
     console.log('result: ', result);
     var return_val = {
